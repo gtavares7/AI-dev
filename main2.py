@@ -16,6 +16,9 @@ engine = pyttsx3.init()
 # declare variable to control the speed of the AI voice
 rate = engine.getProperty('rate')
 engine.setProperty('rate', rate-50)
+# declare variable to control the volume of the AI voice
+# volume = engine.getProperty('volume')
+# engine.setProperty('volume', volume+0.25)
 # declare variable of voices to get all provided voices
 voices = engine.getProperty('voices')
 # tell engine to set voices to voice index 1
