@@ -35,7 +35,6 @@ def take_command():
             # declare Voice variable to listen to our source
             voice = listener.listen(source)
             # once we have the source, use Google to convert the voice variable input into text
-
             command = listener.recognize_google(voice)
             # send command to lowercase
             command = command.lower()
