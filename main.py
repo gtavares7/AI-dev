@@ -25,19 +25,37 @@ def talk(text):
     engine.runAndWait()
 
 
-# Try block to check for errors
-try:
-    # use microphone as source of audio
-    with sr.Microphone() as source:
-        print('listening...')
-        # declare Voice variable to listen to our source
-        voice = listener.listen(source)
-        # once we have the source, use Google to convert the voice variable input into text
-        command = listener.recognize_google(voice)
-        # send command to lowercase
-        command = command.lower()
-        # check if 'alexa' is mentioned in the command, if not then quit
-        if 'alexa' in command:
-           talk(command)
-except:
-    pass
+# define function to take inputs as commands
+def take_command():
+    # Try block to check for errors
+    try:
+        # use microphone as source of audio
+        with sr.Microphone() as source:
+            print('listening...')
+            # declare Voice variable to listen to our source
+            voice = listener.listen(source)
+            # once we have the source, use Google to convert the voice variable input into text
+
+            command = listener.recognize_google(voice)
+            # send command to lowercase
+            command = command.lower()
+            # check if 'alexa' is mentioned in the command, if not then quit
+            if 'alexa' in command:
+                # remove the word alexa from the input string
+                command = command.replace('alexa', '')
+                print(command)
+    except:
+        pass
+    return command
+
+
+# function to run AI
+def run_ai():
+    command = take_command()
+    print(command)
+    if 'play' in command:
+        talk('playing song...')
+        print('playing song...')
+
+
+run_ai()
