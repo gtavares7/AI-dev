@@ -13,10 +13,13 @@ import pyttsx3
 listener = sr.Recognizer()
 # engine that will speak back to me
 engine = pyttsx3.init()
+# declare variable to control the speed of the AI voice
+rate = engine.getProperty('rate')
+engine.setProperty('rate', rate-50)
 # declare variable of voices to get all provided voices
 voices = engine.getProperty('voices')
 # tell engine to set voices to voice index 1
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[1].id)
 engine.say('Hello, I am your AI prototype')
 engine.say('What can I do for you?')
 engine.runAndWait()
