@@ -13,17 +13,13 @@ import pyttsx3
 listener = sr.Recognizer()
 # engine that will speak back to me
 engine = pyttsx3.init()
-# declare variable of voices to get all provided voices in pyttsx3
+# declare variable of voices to get all provided voices
 voices = engine.getProperty('voices')
-# tell engine to set voices to voice index 0
+# tell engine to set voices to voice index 1
 engine.setProperty('voice', voices[0].id)
-
-
-# define function to  say whatever parameter we pass to the function
-def talk(text):
-    engine.say(text)
-    engine.runAndWait()
-
+engine.say('Hello, I am your AI prototype')
+engine.say('What can I do for you?')
+engine.runAndWait()
 
 # Try block to check for errors
 try:
@@ -38,6 +34,8 @@ try:
         command = command.lower()
         # check if 'alexa' is mentioned in the command, if not then quit
         if 'alexa' in command:
-           talk(command)
+            #engine.say(command)
+            #engine.runAndWait()
+            print(command)
 except:
     pass
