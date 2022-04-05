@@ -36,7 +36,7 @@ def take_command():
                 print(command)
     except:
         pass
-    return
+    return command
 
 
 def run_aaliyah():
@@ -73,6 +73,10 @@ def run_aaliyah():
     elif 'joke' in command:
         talk(pyjokes.get_joke())
         print(pyjokes.get_joke())
+
+    else:
+        talk('Please say that again')
+        print('Please say that again')
 
 
 while True:
