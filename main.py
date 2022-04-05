@@ -8,6 +8,8 @@
 import speech_recognition as sr
 # package needed to make the AI speak back to the user
 import pyttsx3
+# package group that includes a bunch of other packages
+import pywhatkit
 
 # create a listener for SpeechRecognition, sr.Recognizer() is used to recognize my voice
 listener = sr.Recognizer()
@@ -41,7 +43,7 @@ def take_command():
             # check if 'alexa' is mentioned in the command, if not then quit
             if 'aaliyah' in command:
                 # remove the word alexa from the input string
-                command = command.replace('alexa', '')
+                command = command.replace('aaliyah', '')
                 print(command)
     except:
         pass
@@ -50,11 +52,15 @@ def take_command():
 
 # function to run AI
 def run_aaliyah():
+    # take output from take_command() and use it as input in run_aaliyah()
     command = take_command()
     print(command)
     if 'play' in command:
-        talk('playing song...')
-        print('playing song...')
+        # remove 'play' from input string
+        song = command.replace('play', '')
+        talk('playing' + song)
+        # function to play song on YouTube
+        pywhatkit.playonyt(song)
 
 
 run_aaliyah()
