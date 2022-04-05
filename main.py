@@ -81,7 +81,7 @@ def run_aaliyah():
         # remove 'wikipedia' from input string
         command = command.replace("wikipedia", "")
         # pass 'command' output in summary method and show 3 lines
-        results = wikipedia.summary(command, sentences=3)
+        results = wikipedia.summary(command, 3)
         # output Wikipedia results
         speak("According to Wikipedia")
         print(results)
@@ -95,10 +95,12 @@ def run_aaliyah():
 
     elif 'joke' in command:
         talk(pyjokes.get_joke())
-        print(pyjokes.get_joke())
 
     # function set in case AI does not understand input
     else:
         talk('Please say that again')
 
-run_aaliyah()
+
+# Runs Aaliyah AI in a loop
+while True:
+    run_aaliyah()
