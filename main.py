@@ -109,4 +109,8 @@ def run_aaliyah():
 
 # Runs Aaliyah AI in a loop
 while True:
-    run_aaliyah()
+    try:
+        run_aaliyah()
+    except UnboundLocalError:
+        print("No command detected! Aaliyah has stopped working ")
+        break
