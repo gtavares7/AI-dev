@@ -10,6 +10,10 @@ import speech_recognition as sr
 import pyttsx3
 # package group that includes a bunch of other packages
 import pywhatkit
+# built-in package for Date and Time
+import datetime
+# package for wikipedia searches
+import wikipedia
 
 # create a listener for SpeechRecognition, sr.Recognizer() is used to recognize my voice
 listener = sr.Recognizer()
@@ -61,6 +65,13 @@ def run_aaliyah():
         talk('playing' + song)
         # function to play song on YouTube
         pywhatkit.playonyt(song)
+
+    # function to get time
+    elif 'time' in command:
+        # call datetime "now()" and set string format time to Hours:Minutes AM/PM
+        time = datetime.datetime.now().strftime('%I:%M %p')
+        print(time)
+        talk('Current time is' + time)
 
 
 run_aaliyah()
