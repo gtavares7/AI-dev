@@ -18,18 +18,16 @@ def talk(text):
 def take_command():
     try:
         with sr.Microphone() as source:
-            print('Listening...')
+            print('listening...')
             voice = listener.listen(source)
             command = listener.recognize_google(voice)
             command = command.lower()
             if 'aaliyah' in command:
                 command = command.replace('aaliyah', '')
                 print(command)
-
     except:
         pass
-    return command
-
+    return
 
 def run_aaliyah():
     command = take_command()
@@ -37,3 +35,6 @@ def run_aaliyah():
     if 'play' in command:
         talk('playing song...')
         print('playing song...')
+
+
+run_aaliyah()
