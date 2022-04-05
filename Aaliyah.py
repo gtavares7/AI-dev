@@ -6,6 +6,10 @@
 
 import speech_recognition as sr
 import pyttsx3
+import pywhatkit
+import datetime
+import wikipedia
+import pyjokes
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -36,12 +40,42 @@ def take_command():
         pass
     return
 
+
 def run_aaliyah():
     command = take_command()
     print(command)
     if 'play' in command:
-        talk('playing song...')
-        print('playing song...')
+        song = command.replace('play', '')
+        talk('Playing ' + song)
+        print('Playing ' + song)
+        pywhatkit.playonyt(song)
+
+    elif 'time' in command:
+        time = datetime.datetime.now().strftime('%I:%M %p')
+        print(time)
+        talk('Current time is' + time)
+
+    elif 'wikipedia' in command:
+        talk('Searching Wikipedia...')
+        print('Searching Wikipedia...')
+        command = command.replace('wikipedia', '')
+        results = wikipedia.summary(command, 3)
+        talk('According to Wikipedia')
+        talk(results)
+        print(results)
+
+    elif 'date with me' in command:
+        talk("I don't think you're my type")
+        print("I don't think you're my type")
+
+    elif 'that hurt my feelings' in command:
+        talk('suck it up, buttercup!')
+        print('suck it up, buttercup!')
+
+    elif 'joke' in command:
+        talk(pyjokes.get_joke())
+        print(pyjokes.get_joke())
 
 
-run_aaliyah()
+while True:
+    run_aaliyah()

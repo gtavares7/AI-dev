@@ -64,7 +64,8 @@ def run_aaliyah():
     if 'play' in command:
         # remove 'play' from input string
         song = command.replace('play', '')
-        talk('playing' + song)
+        talk('Playing ' + song)
+        print('Playing ' + song)
         # function to play song on YouTube
         pywhatkit.playonyt(song)
 
@@ -72,33 +73,38 @@ def run_aaliyah():
     elif 'time' in command:
         # call datetime "now()" and set string format time to Hours:Minutes AM/PM
         time = datetime.datetime.now().strftime('%I:%M %p')
-        print(time)
         talk('Current time is' + time)
+        print('Current time is' + time)
 
     # function to search the wikipedia database
     elif 'wikipedia' in command:
         talk('Searching Wikipedia...')
+        print('Searching Wikipedia...')
         # remove 'wikipedia' from input string
-        command = command.replace("wikipedia", "")
+        command = command.replace('wikipedia', '')
         # pass 'command' output in summary method and show 3 lines
         results = wikipedia.summary(command, 3)
         # output Wikipedia results
-        talk("According to Wikipedia")
+        talk('According to Wikipedia')
         print(results)
         talk(results)
 
     # function to ask aaliyah on a date
     elif 'date with me' in command:
         talk("I don't think you're my type")
+        print("I don't think you're my type")
     elif 'that hurt my feelings' in command:
         talk('suck it up, buttercup!')
+        print('suck it up, buttercup!')
 
     elif 'joke' in command:
         talk(pyjokes.get_joke())
+        print(pyjokes.get_joke())
 
     # function set in case AI does not understand input
     else:
         talk('Please say that again')
+        print('Please say that again')
 
 
 # Runs Aaliyah AI in a loop
