@@ -97,6 +97,8 @@ def run_aaliyah():
         talk(pyjokes.get_joke())
         print(pyjokes.get_joke())
 
-    
+    # function set in case AI does not understand input
+    else:
+        talk('Please say that again')
 
 run_aaliyah()
