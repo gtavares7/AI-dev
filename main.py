@@ -14,6 +14,8 @@ import pywhatkit
 import datetime
 # package for wikipedia searches
 import wikipedia
+# package to have AI tell a joke
+import pyjokes
 
 # create a listener for SpeechRecognition, sr.Recognizer() is used to recognize my voice
 listener = sr.Recognizer()
@@ -72,6 +74,18 @@ def run_aaliyah():
         time = datetime.datetime.now().strftime('%I:%M %p')
         print(time)
         talk('Current time is' + time)
+
+    # function to search the wikipedia database
+    elif 'wikipedia' in command:
+        speak('Searching Wikipedia...')
+        # remove 'wikipedia' from input string
+        command = command.replace("wikipedia", "")
+        # pass 'command' output in summary method and show 3 lines
+        results = wikipedia.summary(command, sentences=3)
+        # output Wikipedia results
+        speak("According to Wikipedia")
+        print(results)
+        speak(results)
 
 
 run_aaliyah()
