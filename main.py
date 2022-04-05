@@ -87,5 +87,16 @@ def run_aaliyah():
         print(results)
         speak(results)
 
+    # function to ask aaliyah on a date
+    elif 'date with me' in command:
+        talk("I don't think you're my type")
+    elif 'that hurt my feelings' in command:
+        talk('suck it up, buttercup!')
+
+    elif 'joke' in command:
+        talk(pyjokes.get_joke())
+        print(pyjokes.get_joke())
+
+    
 
 run_aaliyah()
