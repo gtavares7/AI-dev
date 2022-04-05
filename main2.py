@@ -15,7 +15,7 @@ listener = sr.Recognizer()
 engine = pyttsx3.init()
 # declare variable to control the speed of the AI voice
 rate = engine.getProperty('rate')
-engine.setProperty('rate', rate-70)
+engine.setProperty('rate', 125)
 # declare variable to control the volume of the AI voice
 # volume = engine.getProperty('volume')
 # engine.setProperty('volume', volume+0.25)
@@ -39,9 +39,9 @@ try:
         # send command to lowercase
         command = command.lower()
         # check if 'alexa' is mentioned in the command, if not then quit
-        if 'alexa' in command:
-            #engine.say(command)
-            #engine.runAndWait()
+        if 'aaliyah' in command:
+            # engine.say(command)
+            # engine.runAndWait()
             print(command)
 except:
     pass

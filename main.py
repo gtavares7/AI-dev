@@ -39,7 +39,7 @@ def take_command():
             # send command to lowercase
             command = command.lower()
             # check if 'alexa' is mentioned in the command, if not then quit
-            if 'alexa' in command:
+            if 'aaliyah' in command:
                 # remove the word alexa from the input string
                 command = command.replace('alexa', '')
                 print(command)
@@ -49,7 +49,7 @@ def take_command():
 
 
 # function to run AI
-def run_ai():
+def run_aaliyah():
     command = take_command()
     print(command)
     if 'play' in command:
@@ -57,4 +57,4 @@ def run_ai():
         print('playing song...')
 
 
-run_ai()
+run_aaliyah()
