@@ -15,7 +15,7 @@ listener = sr.Recognizer()
 engine = pyttsx3.init()
 # declare variable to control the speed of the AI voice
 rate = engine.getProperty('rate')
-engine.setProperty('rate', rate-50)
+engine.setProperty('rate', rate-70)
 # declare variable to control the volume of the AI voice
 # volume = engine.getProperty('volume')
 # engine.setProperty('volume', volume+0.25)
