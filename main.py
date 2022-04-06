@@ -16,6 +16,10 @@ import datetime
 import wikipedia
 # package to have AI tell a joke
 import pyjokes
+# package to control OS applications
+import os
+# function to open WebBrowser
+import webbrowser
 
 # create a listener for SpeechRecognition, sr.Recognizer() is used to recognize my voice
 listener = sr.Recognizer()
@@ -107,6 +111,11 @@ def run_aaliyah():
         talk('According to Wikipedia')
         print(results)
         talk(results)
+
+    # function to open google.ca in web browser
+    elif 'open google' in command:
+        webbrowser.open_new_tab("https://www.google.ca")
+        talk("Google chrome is open now")
 
     # function to ask aaliyah on a date
     elif 'date with me' in command:
