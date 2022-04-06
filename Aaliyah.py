@@ -24,6 +24,19 @@ def talk(text):
     engine.runAndWait()
 
 
+def greetMe():
+    hour = datetime.datetime.now().hour
+    if hour >= 0 and hour < 12:
+        talk("Hello,Good Morning")
+        print("Hello,Good Morning")
+    elif hour >= 12 and hour < 18:
+        talk("Hello,Good Afternoon")
+        print("Hello,Good Afternoon")
+    else:
+        talk("Hello,Good Evening")
+        print("Hello,Good Evening")
+
+
 def take_command():
     try:
         with sr.Microphone() as source:
@@ -39,7 +52,11 @@ def take_command():
     return command
 
 
+greetMe()
+
+
 def run_aaliyah():
+    talk('How can I help you?')
     command = take_command()
     print(command)
     if 'play' in command:
@@ -80,4 +97,8 @@ def run_aaliyah():
 
 
 while True:
-    run_aaliyah()
+    try:
+        run_aaliyah()
+    except UnboundLocalError:
+        print('No command detected! Aaliyah is shutting down!')
+        break

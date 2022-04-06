@@ -17,7 +17,7 @@ import wikipedia
 # package to have AI tell a joke
 import pyjokes
 # package to control OS applications
-import os
+# import os
 # function to open WebBrowser
 import webbrowser
 
@@ -140,5 +140,5 @@ while True:
     try:
         run_aaliyah()
     except UnboundLocalError:
-        print("No command detected! Aaliyah has stopped working ")
+        print("No command detected! Aaliyah is shutting down! ")
         break
