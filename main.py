@@ -33,6 +33,20 @@ def talk(text):
     engine.runAndWait()
 
 
+# function to make AI greet me depending on the time of day
+def greetMe():
+    hour = datetime.datetime.now().hour
+    if hour >= 0 and hour < 12:
+        talk("Hello,Good Morning")
+        print("Hello,Good Morning")
+    elif hour >= 12 and hour < 18:
+        talk("Hello,Good Afternoon")
+        print("Hello,Good Afternoon")
+    else:
+        talk("Hello,Good Evening")
+        print("Hello,Good Evening")
+
+
 # define function to take inputs as commands
 def take_command():
     # Try block to check for errors
@@ -56,8 +70,13 @@ def take_command():
     return command
 
 
+# make AI greet me
+greetMe()
+
+
 # function to run AI
 def run_aaliyah():
+    talk('How can I help you?')
     # take output from take_command() and use it as input in run_aaliyah()
     command = take_command()
     print(command)
