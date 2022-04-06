@@ -38,7 +38,7 @@ def talk(text):
 
 
 # function to make AI greet me depending on the time of day
-def greetMe():
+def greeting():
     hour = datetime.datetime.now().hour
     if hour >= 0 and hour < 12:
         talk("Hello,Good Morning")
@@ -75,7 +75,7 @@ def take_command():
 
 
 # make AI greet me
-greetMe()
+greeting()
 
 
 # function to run AI

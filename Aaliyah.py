@@ -24,7 +24,7 @@ def talk(text):
     engine.runAndWait()
 
 
-def greetMe():
+def greeting():
     hour = datetime.datetime.now().hour
     if hour >= 0 and hour < 12:
         talk("Hello,Good Morning")
@@ -52,7 +52,7 @@ def take_command():
     return command
 
 
-greetMe()
+greeting()
 
 
 def run_aaliyah():
