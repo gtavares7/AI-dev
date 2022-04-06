@@ -84,6 +84,7 @@ def run_aaliyah():
     # take output from take_command() and use it as input in run_aaliyah()
     command = take_command()
     print(command)
+
     if 'play' in command:
         # remove 'play' from input string
         song = command.replace('play', '')
@@ -98,6 +99,14 @@ def run_aaliyah():
         time = datetime.datetime.now().strftime('%I:%M %p')
         talk('Current time is' + time)
         print('Current time is' + time)
+
+    elif 'who are you' in command:
+        talk('My name is Aaliyah. I am an AI voice assistant created by Gabriel Tavares.')
+
+    elif 'what can you do' in command:
+        talk('I can complete small tasks such as opening a web browser, playing music,'
+             'providing the date and time as well as weather conditions in any city.'
+             'I can also complete complex computational equations.')
 
     # function to search the wikipedia database
     elif 'wikipedia' in command:
@@ -115,7 +124,14 @@ def run_aaliyah():
     # function to open google.ca in web browser
     elif 'open google' in command:
         webbrowser.open_new_tab("https://www.google.ca")
-        talk("Google chrome is open now")
+        talk('Google chrome is now opened')
+        print('Google chrome is now opened')
+
+    # open youtube in a web browser
+    elif 'open youtube' in command:
+        webbrowser.open_new_tab("https://www.youtube.com")
+        talk('Youtube is now opened')
+        print('Youtube is now opened')
 
     # function to ask aaliyah on a date
     elif 'date with me' in command:
