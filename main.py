@@ -18,8 +18,10 @@ import wikipedia
 import pyjokes
 # package to control OS applications
 # import os
-# function to open WebBrowser
+# package to open WebBrowser
 import webbrowser
+# package for weather reports
+import requests
 
 # create a listener for SpeechRecognition, sr.Recognizer() is used to recognize my voice
 listener = sr.Recognizer()
@@ -85,13 +87,27 @@ def run_aaliyah():
     command = take_command()
     print(command)
 
-    if 'play' in command:
+    if 'who are you' in command:
+        talk('My name is Aaliyah. I am an AI voice assistant created by Gabriel Tavares.')
+
+    elif 'what can you do' in command:
+        talk('I can complete small tasks such as opening a web browser, playing music,'
+             'providing the date and time as well as weather conditions in any city.'
+             'I can also complete complex computational equations.')
+
+    elif 'play' in command:
         # remove 'play' from input string
         song = command.replace('play', '')
         talk('Playing ' + song)
         print('Playing ' + song)
         # function to play song on YouTube
         pywhatkit.playonyt(song)
+
+    # google search
+    elif 'search' in command or 'look up' in command:
+        search = command.replace('search', '')
+        talk('looking up ' + search)
+        pywhatkit.info(search)
 
     # function to get time
     elif 'time' in command:
@@ -100,13 +116,36 @@ def run_aaliyah():
         talk('Current time is' + time)
         print('Current time is' + time)
 
-    elif 'who are you' in command:
-        talk('My name is Aaliyah. I am an AI voice assistant created by Gabriel Tavares.')
+    # function to get weather
+    elif 'weather' in command:
+        api_key = '8ef61edcf1c576d65d836254e11ea420'
+        base_url = 'https://api.openweathermap.org/data/2.5/weather?'
+        talk('what is the city name')
+        city_name = takeCommand()
+        complete_url = base_url + 'appid=' + api_key + '&q=' + city_name
+        response = requests.get(complete_url)
+        x = response.json()
+        if x['cod'] != '404':
+            y = x['main']
+            current_temperature = y['temp']
+            current_humidity = y['humidity']
+            z = x['weather']
+            weather_description = z[0]['description']
+            talk(' Temperature in kelvin unit is ' +
+                 str(current_temperature) +
+                 '\nhumidity in percentage is ' +
+                 str(current_humidity) +
+                 '\ndescription  ' +
+                 str(weather_description))
+            print('Temperature in kelvin unit = ' +
+                  str(current_temperature) +
+                  '\n humidity (in percentage) = ' +
+                  str(current_humidity) +
+                  '\n description = ' +
+                  str(weather_description))
 
-    elif 'what can you do' in command:
-        talk('I can complete small tasks such as opening a web browser, playing music,'
-             'providing the date and time as well as weather conditions in any city.'
-             'I can also complete complex computational equations.')
+        else:
+            talk('City Not Found')
 
     # function to search the wikipedia database
     elif 'wikipedia' in command:
@@ -127,7 +166,7 @@ def run_aaliyah():
         talk('Google chrome is now opened')
         print('Google chrome is now opened')
 
-    # open youtube in a web browser
+    # open YouTube in a web browser
     elif 'open youtube' in command:
         webbrowser.open_new_tab("https://www.youtube.com")
         talk('Youtube is now opened')
