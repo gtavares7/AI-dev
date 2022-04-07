@@ -12,8 +12,6 @@ import pyttsx3
 import pywhatkit
 # built-in package for Date and Time
 import datetime
-# package for time.sleep
-import time
 # package for wikipedia searches
 import wikipedia
 # package to have AI tell a joke
@@ -53,7 +51,6 @@ def greeting():
     else:
         talk("Hello,Good Evening")
         print("Hello,Good Evening")
-        time.sleep(2)
 
 
 # define function to take inputs as commands
@@ -116,6 +113,7 @@ def run_aaliyah():
     elif 'time' in command:
         # call datetime "now()" and set string format time to Hours:Minutes AM/PM
         time = datetime.datetime.now().strftime('%I:%M %p')
+        print(time)
         talk('Current time is' + time)
 
     # function to search the wikipedia database
@@ -130,20 +128,20 @@ def run_aaliyah():
         print(results)
         talk(results)
 
-    # function to open google.ca in web browser
+    # function to open Google Chrome
     elif 'open google' in command:
-        webbrowser.open_new_tab("https://www.google.ca")
+        webbrowser.open_new_tab('https://www.google.ca')
         talk('Google chrome is now opened')
 
-    # open YouTube in a web browser
-    elif 'open youtube' in command:
-        webbrowser.open_new_tab("https://www.youtube.com")
-        talk('Youtube is now opened')
-
-    # open GMail
+    # function to open Gmail
     elif 'open gmail' in command:
         webbrowser.open_new_tab('https://mail.google.com')
         talk('Gmail is now opened')
+
+    # function to open YouTube
+    elif 'open youtube' in command:
+        webbrowser.open_new_tab('https://www.youtube.com')
+        talk('Youtube is now opened')
 
     # function to ask aaliyah on a date
     elif 'date with me' in command:

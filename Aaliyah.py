@@ -8,6 +8,7 @@ import pywhatkit
 import datetime
 import wikipedia
 import pyjokes
+import webbrowser
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -59,11 +60,26 @@ def run_aaliyah():
     talk('How can I help you?')
     command = take_command()
     print(command)
-    if 'play' in command:
+
+    if 'who are you' in command:
+        talk('My name is Aaliyah. I am an AI voice assistant created by Gabriel Tavares.'
+             'My physical self was created by my mommy Fanta.')
+
+    elif 'what can you do' in command:
+        talk('I can complete small tasks such as opening a web browser, playing music,'
+             'providing the date and time as well as weather conditions in any city.'
+             'I can also complete complex computational equations.')
+
+    elif 'play' in command:
         song = command.replace('play', '')
         talk('Playing ' + song)
         print('Playing ' + song)
         pywhatkit.playonyt(song)
+
+    elif 'search' in command:
+        search = command.replace('search', '')
+        talk('looking up' + search)
+        pywhatkit.info(search)
 
     elif 'time' in command:
         time = datetime.datetime.now().strftime('%I:%M %p')
@@ -79,21 +95,28 @@ def run_aaliyah():
         talk(results)
         print(results)
 
+    elif 'open google' in command:
+        webbrowser.open_new_tab('https://www.google.ca')
+        talk('Google chrome is now opened')
+
+    elif 'open gmail' in command:
+        webbrowser.open_new_tab('https://mail.google.com')
+        talk('Gmail is now opened')
+
+    elif 'open youtube' in command:
+        webbrowser.open_new_tab('https://www.youtube.com')
+        talk('Youtube is now opened')
+
     elif 'date with me' in command:
         talk("I don't think you're my type")
-        print("I don't think you're my type")
-
     elif 'that hurt my feelings' in command:
         talk('suck it up, buttercup!')
-        print('suck it up, buttercup!')
 
     elif 'joke' in command:
         talk(pyjokes.get_joke())
-        print(pyjokes.get_joke())
 
     else:
         talk('Please say that again')
-        print('Please say that again')
 
 
 while True:

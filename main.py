@@ -113,8 +113,8 @@ def run_aaliyah():
     elif 'time' in command:
         # call datetime "now()" and set string format time to Hours:Minutes AM/PM
         time = datetime.datetime.now().strftime('%I:%M %p')
+        print(time)
         talk('Current time is' + time)
-        print('Current time is' + time)
 
     # function to get weather
     elif 'weather' in command:
@@ -164,6 +164,11 @@ def run_aaliyah():
         webbrowser.open_new_tab("https://www.google.ca")
         talk('Google chrome is now opened')
         print('Google chrome is now opened')
+
+    elif 'gmail' in command:
+        webbrowser.open_new_tab('https://mail.google.com')
+        talk('Gmail is now opened')
+        print('Gmail is now opened')
 
     # open YouTube in a web browser
     elif 'open youtube' in command:
