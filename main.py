@@ -107,7 +107,7 @@ def run_aaliyah():
     elif 'search' in command or 'look up' in command:
         search = command.replace('search', '')
         talk('looking up ' + search)
-        pywhatkit.info(search)
+        pywhatkit.info(search, lines=4)
 
     # function to get time
     elif 'time' in command:

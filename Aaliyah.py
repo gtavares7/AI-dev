@@ -1,4 +1,3 @@
-
 # Aaliyah AI
 # Created by Gabriel Tavares
 
@@ -16,6 +15,8 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 rate = engine.getProperty('rate')
 engine.setProperty('rate', 200)
+
+
 # volume = engine.getProperty('volume')
 # engine.setProperty('volume', volume+25)
 
@@ -79,7 +80,7 @@ def run_aaliyah():
     elif 'search' in command:
         search = command.replace('search', '')
         talk('looking up' + search)
-        pywhatkit.info(search)
+        pywhatkit.info(search, lines=4)
 
     elif 'time' in command:
         time = datetime.datetime.now().strftime('%I:%M %p')
