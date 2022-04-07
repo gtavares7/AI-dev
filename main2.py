@@ -16,8 +16,10 @@ import datetime
 import wikipedia
 # package to have AI tell a joke
 import pyjokes
-# package to control OS applications
-# import os
+# package to control OS
+import os
+# package to shut off PC
+import subprocess
 # package to open WebBrowser
 import webbrowser
 # package for weather reports
@@ -151,8 +153,14 @@ def run_aaliyah():
     elif 'that hurt my feelings' in command:
         talk('suck it up, buttercup!')
 
+    # function to tell a joke
     elif 'joke' in command:
         talk(pyjokes.get_joke())
+
+    # function to turn off PC
+    elif "power off" in command or "shut down" in command:
+        talk("Ok , your pc will shut down in 10 seconds")
+        subprocess.call(["shutdown", "/l"])
 
     # function set in case AI does not understand input
     else:

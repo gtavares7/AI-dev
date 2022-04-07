@@ -7,6 +7,7 @@ import pywhatkit
 import datetime
 import wikipedia
 import pyjokes
+import subprocess
 import webbrowser
 
 listener = sr.Recognizer()
@@ -115,6 +116,10 @@ def run_aaliyah():
 
     elif 'joke' in command:
         talk(pyjokes.get_joke())
+
+    elif "power off" in command or "shut down" in command:
+        talk("Ok , your pc will shut down in 10 seconds")
+        subprocess.call(["shutdown", "/l"])
 
     else:
         talk('Please say that again')
