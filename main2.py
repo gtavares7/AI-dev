@@ -12,6 +12,8 @@ import pyttsx3
 import pywhatkit
 # built-in package for Date and Time
 import datetime
+# package for time.sleep
+import time
 # package for wikipedia searches
 import wikipedia
 # package to have AI tell a joke
@@ -51,6 +53,7 @@ def greeting():
     else:
         talk("Hello,Good Evening")
         print("Hello,Good Evening")
+        time.sleep(2)
 
 
 # define function to take inputs as commands
@@ -88,7 +91,8 @@ def run_aaliyah():
     print(command)
 
     if 'who are you' in command:
-        talk('My name is Aaliyah. I am an AI voice assistant created by Gabriel Tavares.')
+        talk('My name is Aaliyah. I am an AI voice assistant created by Gabriel Tavares.'
+             'My physical self was created by my mommy Fanta.')
 
     elif 'what can you do' in command:
         talk('I can complete small tasks such as opening a web browser, playing music,'
@@ -99,7 +103,6 @@ def run_aaliyah():
         # remove 'play' from input string
         song = command.replace('play', '')
         talk('Playing ' + song)
-        print('Playing ' + song)
         # function to play song on YouTube
         pywhatkit.playonyt(song)
 
@@ -114,12 +117,10 @@ def run_aaliyah():
         # call datetime "now()" and set string format time to Hours:Minutes AM/PM
         time = datetime.datetime.now().strftime('%I:%M %p')
         talk('Current time is' + time)
-        print('Current time is' + time)
 
     # function to search the wikipedia database
     elif 'wikipedia' in command:
         talk('Searching Wikipedia...')
-        print('Searching Wikipedia...')
         # remove 'wikipedia' from input string
         command = command.replace('wikipedia', '')
         # pass 'command' output in summary method and show 3 lines
@@ -133,36 +134,29 @@ def run_aaliyah():
     elif 'open google' in command:
         webbrowser.open_new_tab("https://www.google.ca")
         talk('Google chrome is now opened')
-        print('Google chrome is now opened')
 
     # open YouTube in a web browser
     elif 'open youtube' in command:
         webbrowser.open_new_tab("https://www.youtube.com")
         talk('Youtube is now opened')
-        print('Youtube is now opened')
 
     # open GMail
     elif 'open gmail' in command:
         webbrowser.open_new_tab('https://mail.google.com')
         talk('Gmail is now opened')
-        print('Gmail is now opened')
 
     # function to ask aaliyah on a date
     elif 'date with me' in command:
         talk("I don't think you're my type")
-        print("I don't think you're my type")
     elif 'that hurt my feelings' in command:
         talk('suck it up, buttercup!')
-        print('suck it up, buttercup!')
 
     elif 'joke' in command:
         talk(pyjokes.get_joke())
-        print(pyjokes.get_joke())
 
     # function set in case AI does not understand input
     else:
         talk('Please say that again')
-        print('Please say that again')
 
 
 # Runs Aaliyah AI in a loop
