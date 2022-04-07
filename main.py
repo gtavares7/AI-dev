@@ -143,7 +143,6 @@ def run_aaliyah():
                   str(current_humidity) +
                   '\n description = ' +
                   str(weather_description))
-
         else:
             talk('City Not Found')
 
