@@ -26,6 +26,8 @@ import webbrowser
 import requests
 # package for computational equations
 import wolframalpha
+# package for json files
+import json
 
 # create a listener for SpeechRecognition, sr.Recognizer() is used to recognize my voice
 listener = sr.Recognizer()
@@ -35,6 +37,9 @@ engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 # tell engine to set voices to voice index 0
 engine.setProperty('voice', voices[0].id)
+# tell engine what speech speed to use
+rate = engine.getProperty('rate')
+engine.setProperty('rate', 150)
 
 
 # define function to  say whatever parameter we pass to the function
