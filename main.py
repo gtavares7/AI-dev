@@ -210,8 +210,8 @@ def run_aaliyah():
 
     # function set in case AI does not understand input
     else:
-        talk('Please say that again')
-        print('Please say that again')
+        talk("I'm sorry, I didn't get that. Please say it again")
+        print("I'm sorry, I didn't get that. Please say it again")
 
 
 # Runs Aaliyah AI in a loop

@@ -17,7 +17,7 @@ import wikipedia
 # package to have AI tell a joke
 import pyjokes
 # package to control OS
-import os
+# import os
 # package to shut off PC
 import subprocess
 # package to open WebBrowser
@@ -164,7 +164,7 @@ def run_aaliyah():
 
     # function set in case AI does not understand input
     else:
-        talk('Please say that again')
+        talk("I'm sorry, I didn't get that. Please say it again")
 
 
 # Runs Aaliyah AI in a loop

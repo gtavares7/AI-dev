@@ -122,7 +122,7 @@ def run_aaliyah():
         subprocess.call(["shutdown", "/l"])
 
     else:
-        talk('Please say that again')
+        talk("I'm sorry, I didn't get that. Please say it again")
 
 
 while True:
