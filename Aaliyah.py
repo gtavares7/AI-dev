@@ -109,6 +109,10 @@ def run_aaliyah():
         webbrowser.open_new_tab('https://www.youtube.com')
         talk('Youtube is now opened')
 
+    elif 'news' in command:
+        webbrowser.open_new_tab('https://news.google.com/foryou')
+        talk('Google News is now opened')
+
     elif 'date with me' in command:
         talk("I don't think you're my type")
     elif 'that hurt my feelings' in command:
