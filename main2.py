@@ -147,6 +147,11 @@ def run_aaliyah():
         webbrowser.open_new_tab('https://www.youtube.com')
         talk('Youtube is now opened')
 
+    # function to open Google News
+    elif 'news' in command:
+        webbrowser.open_new_tab('https://news.google.com/foryou')
+        talk('Google News is now opened')
+
     # function to ask aaliyah on a date
     elif 'date with me' in command:
         talk("I don't think you're my type")

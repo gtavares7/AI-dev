@@ -180,8 +180,15 @@ def run_aaliyah():
         talk('Youtube is now opened')
         print('Youtube is now opened')
 
+    # function to open Google News
+    elif 'news' in command:
+        webbrowser.open_new_tab('https://news.google.com/foryou')
+        talk('Google News is now opened')
+        print('Google News is now opened')
+
+    # wolframalpha plugin to solve equations
     elif 'ask' in command:
-        talk('I can answer to computational and geographical questions and what question do you want to ask now')
+        talk('I can answer any computational and geographical questions, what do you want to ask me?')
         question = takeCommand()
         app_id = "878KK2-9E5K7L442U"
         client = wolframalpha.Client('878KK2-9E5K7L442U')
