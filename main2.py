@@ -22,6 +22,8 @@ import pyjokes
 import webbrowser
 # package for weather reports
 # import requests
+# package for computational equations
+# import wolframalpha
 
 # create a listener for SpeechRecognition, sr.Recognizer() is used to recognize my voice
 listener = sr.Recognizer()

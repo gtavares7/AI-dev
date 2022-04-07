@@ -22,6 +22,8 @@ import pyjokes
 import webbrowser
 # package for weather reports
 import requests
+# package for computational equations
+import wolframalpha
 
 # create a listener for SpeechRecognition, sr.Recognizer() is used to recognize my voice
 listener = sr.Recognizer()
@@ -175,6 +177,16 @@ def run_aaliyah():
         webbrowser.open_new_tab("https://www.youtube.com")
         talk('Youtube is now opened')
         print('Youtube is now opened')
+
+    elif 'ask' in command:
+        talk('I can answer to computational and geographical questions and what question do you want to ask now')
+        question = takeCommand()
+        app_id = "878KK2-9E5K7L442U"
+        client = wolframalpha.Client('878KK2-9E5K7L442U')
+        res = client.query(question)
+        answer = next(res.results).text
+        talk(answer)
+        print(answer)
 
     # function to ask aaliyah on a date
     elif 'date with me' in command:
