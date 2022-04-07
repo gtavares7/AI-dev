@@ -141,6 +141,12 @@ def run_aaliyah():
         talk('Youtube is now opened')
         print('Youtube is now opened')
 
+    # open GMail
+    elif 'open gmail' in command:
+        webbrowser.open_new_tab('https://mail.google.com')
+        talk('Gmail is now opened')
+        print('Gmail is now opened')
+
     # function to ask aaliyah on a date
     elif 'date with me' in command:
         talk("I don't think you're my type")
