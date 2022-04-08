@@ -34,10 +34,10 @@ engine = pyttsx3.init()
 # declare variable of voices to get all provided voices in pyttsx3
 voices = engine.getProperty('voices')
 # tell engine to set voices to voice index 0
-engine.setProperty('voice', voices[1].id)
+engine.setProperty('voice', voices[0].id)
 # tell engine what speech speed to use
 rate = engine.getProperty('rate')
-engine.setProperty('rate', 150)
+engine.setProperty('rate', 175)
 
 
 # define function to  say whatever parameter we pass to the function
