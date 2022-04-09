@@ -9,6 +9,8 @@ import wikipedia
 import pyjokes
 import subprocess
 import webbrowser
+import requests
+import wolframalpha
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -88,6 +90,35 @@ def run_aaliyah():
         print(time)
         talk('Current time is' + time)
 
+    elif 'weather' in command:
+        api_key = '8ef61edcf1c576d65d836254e11ea420'
+        base_url = 'https://api.openweathermap.org/data/2.5/weather?'
+        talk('what is the city name')
+        city_name = takeCommand()
+        complete_url = base_url + 'appid=' + api_key + '&q=' + city_name
+        response = requests.get(complete_url)
+        x = response.json()
+        if x['cod'] != '404':
+            y = x['main']
+            current_temperature = y['temp']
+            current_humidity = y['humidity']
+            z = x['weather']
+            weather_description = z[0]['description']
+            talk(' Temperature in kelvin unit is ' +
+                 str(current_temperature) +
+                 '\nhumidity in percentage is ' +
+                 str(current_humidity) +
+                 '\ndescription  ' +
+                 str(weather_description))
+            print('Temperature in kelvin unit = ' +
+                  str(current_temperature) +
+                  '\n humidity (in percentage) = ' +
+                  str(current_humidity) +
+                  '\n description = ' +
+                  str(weather_description))
+        else:
+            talk('City Not Found')
+
     elif 'wikipedia' in command:
         talk('Searching Wikipedia...')
         print('Searching Wikipedia...')
@@ -112,6 +143,16 @@ def run_aaliyah():
     elif 'news' in command:
         webbrowser.open_new_tab('https://news.google.com/foryou')
         talk('Google News is now opened')
+
+    elif 'ask' in command:
+        talk('I can answer any computational and geographical questions, what do you want to ask me?')
+        question = take_command()
+        app_id = "878KK2-9E5K7L442U"
+        client = wolframalpha.Client('878KK2-9E5K7L442U')
+        res = client.query(question)
+        answer = next(res.results).text
+        talk(answer)
+        print(answer)
 
     elif 'date with me' in command:
         talk("I don't think you're my type")
