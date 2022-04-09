@@ -94,7 +94,7 @@ def run_aaliyah():
         api_key = '8ef61edcf1c576d65d836254e11ea420'
         base_url = 'https://api.openweathermap.org/data/2.5/weather?'
         talk('what is the city name')
-        city_name = takeCommand()
+        city_name = take_command()
         complete_url = base_url + 'appid=' + api_key + '&q=' + city_name
         response = requests.get(complete_url)
         x = response.json()
