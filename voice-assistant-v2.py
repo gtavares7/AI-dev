@@ -16,15 +16,15 @@ import os
 # initialize a recognizer
 r = sr.Recognizer()
 # listen for audio and convert it to text
-def record_audio (ask=False)
-    with sr.Microphone() as source # microphone as source
+def record_audio (ask=False):
+    with sr.Microphone() as source: # microphone as source
         if ask:
             speak(ask)
         audio = r.listen(source) # listen for audio via source
         voice_data = ''
         try:
             voice_data = r.recognize_google(audio) # convert audio to text
-        except sr.UnknownValueError # error: recognizer does not understand
+        except sr.UnknownValueError: # error: recognizer does not understand
             speak('Sorry, I did not get that')
         except sr.RequestError: # error: Recognizer is not connected
             speak('Sorry, my service is down')
