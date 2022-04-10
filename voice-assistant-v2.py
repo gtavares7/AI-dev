@@ -12,6 +12,20 @@ import certifi
 import time
 import os
 
+
+# make the AI recognize the user
+class person:
+    name = ''
+    def setName(self, name):
+        self.name = name
+
+
+def there_exists(terms):
+    for term in terms:
+        if term in voice_data:
+            return True
+
+
 # initialize a recognizer
 r = sr.Recognizer()
 
@@ -35,7 +49,7 @@ def record_audio(ask=False):
 
 # reply to the question
 def speak(audio_string):
-    tts = gTTS(text=audio_string, lang='en')  # text to speach(voice)
+    tts = gTTS(text=audio_string, lang='en')  # text to speach(voice) in english
     r = random.randint(1, 20000000)
     audio_file = 'audio' + str(r) + '.mp3'
     tts.save(audio_file)  # save audio as .mp3
