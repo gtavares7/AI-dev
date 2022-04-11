@@ -87,7 +87,7 @@ def respond(voice_data):
     if there_exists(['how are you','how are you doing']):
         speak(f'I am very well, thanks for asking {person_obj.name}')
 
-    # time
+    # 4: Time
     if there_exists(['what time is it','tell me the time','can I have the time']):
         time = ctime().split(" ")[3].split(":")[0:2]
         if time[0] == "00":
@@ -98,20 +98,42 @@ def respond(voice_data):
         time = f'{hours} {minutes}'
         speak(time)
 
-    # Search Google
+    # 5: Search Google
     if there_exists(["search for"]) and 'youtube' not in voice_data:
         search_term = voice_data.split("for")[-1]
         url = f"https://google.com/search?q={search_term}"
         webbrowser.get().open(url)
         speak(f'Here is what I found for {search_term} on Google')
 
-    # Search YouTube
+    # 6: Search YouTube
     if there_exists(["youtube"]):
         search_term = voice_data.split("for")[-1]
         url = f"https://www.youtube.com/results?search_query={search_term}"
         webbrowser.get().open(url)
         speak(f'Here is what I found for {search_term} on YouTube')
-        
+
+    # 7: Get stock price
+    if there_exists(['price of']):
+        # strip removes whitespace before/after a term in string
+        search_term = voice_data.lower().split(" of ")[-1].strip()
+        stocks = {
+            "apple": "AAPL",
+            "microsoft": "MSFT",
+            "facebook": "FB",
+            "tesla": "TSLA",
+            "bitcoin": "BTC-USD"
+        }
+        try:
+            stock = stocks[search_term]
+            stock = yf.Ticker(stock)
+            price = stock.info["regularMarketPrice"]
+
+            speak(f'price of {search_term} is {price} {stock.info["currency"]} {person_obj.name}')
+        except:
+            speak('oops, something went wrong')
+    if there_exists(['exit','quit','goodbye']):
+        speak('going offline')
+        exit()
 
 
 
