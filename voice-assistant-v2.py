@@ -16,6 +16,7 @@ import os
 # make the AI recognize the user
 class person:
     name = ''
+
     def setName(self, name):
         self.name = name
 
@@ -47,7 +48,7 @@ def record_audio(ask=False):
         return voice_data.lower()
 
 
-# reply to the question
+# get string and make an audio file to be played
 def speak(audio_string):
     tts = gTTS(text=audio_string, lang='en')  # text to speach(voice) in english
     r = random.randint(1, 20000000)
@@ -56,3 +57,28 @@ def speak(audio_string):
     playsound.playsound(audio_file)  # play the audio file
     print(f"May Day: {audio_file}")  # print what the app said
     os.remove(audio_file)  # remove audio file
+
+# how to respond to the question
+def respond(voice_data):
+    speak('How can I help you?')
+
+    # 1: Greeting
+    if there_exists(['hey', 'hi', 'hello']):
+        greetings = [f"hey, how can I help you {person_obj.name}", f"hey, what's up? {person_obj.name}",
+                     f"I'm listening {person_obj.name}", f"how can I help you? {person_obj.name}",
+                     f"hello {person_obj.name}"]
+        greet = greetings[random.randint(0, len(greetings) - 1)]
+        speak(greet)
+
+    # 2: Name
+    if there_exists(['what is your name', 'what is your name', 'tell me your name']):
+        if person_obj.name:
+            speak('My name is Aaliyah')
+        else:
+            speak('My name is Aaliyah. What is your name?')
+
+    # function to remember user's name
+    if there_exists(['My name is', 'I am']):
+        person_name = voice_data.split('is')[-1].strip()
+        speak(f'okay, I will remember that {person_name}')
+        person_obj.setName(person_name)  # remember name is person object
