@@ -102,8 +102,12 @@ def respond(voice_data):
 
     # 4: who am I
     if there_exists(['who are you', 'who made you']):
-        speak('My name is Aaliyah. I am an AI voice assistant created by Gabriel Tavares.'
-              'My physical self was created by my mommy Fanta.')
+        speak('My name is Aaliyah. I am an AI voice assistant created by Gabriel Tavares.')
+
+    if there_exists(['what can you do', 'what are your capabilities']):
+        speak('I can complete small tasks such as opening a web browser, playing music,'
+              'providing the date and time as well as weather conditions in any city.'
+              'I can also complete complex computational equations.')
 
     # 5: Time
     if there_exists(['what time is it', 'tell me the time', 'can I have the time']):
@@ -123,23 +127,30 @@ def respond(voice_data):
         webbrowser.get().open(url)
         speak(f'Here is what I found for {search_term} on Google')
 
-    # 7: Search YouTube
+    # 7: Open Gmail
+    if there_exists(['open gmail', 'open my mail', 'show me my mail']):
+        webbrowser.open_new_tab('https://mail.google.com')
+        speak('Opening Gmail')
+
+    # 8: Search YouTube
     if there_exists(["youtube"]):
         search_term = voice_data.split("for")[-1]
         url = f"https://www.youtube.com/results?search_query={search_term}"
         webbrowser.get().open(url)
         speak(f'Here is what I found for {search_term} on YouTube')
 
-    # 8: Open Gmail
-    if there_exists(['open gmail', 'open my mail', 'show me my mail']):
-        webbrowser.open_new_tab('https://mail.google.com')
-        speak('Opening Gmail')
+    # 9: Play music
+    if there_exists(['play']):
+        search_term = voice_data.split("play")[-1]
+        url = f"https://www.youtube.com/results?search_query={search_term}"
+        webbrowser.get().open(url)
+        speak('Playing' + {search_term})
 
-    # 9: Open the News
+    # 10: Open the News
     if there_exists(['show me the news', 'open the news', 'what is the latest news']):
         webbrowser.open_new_tab('https://news.google.com/foryou')
 
-    # 9: Get stock price
+    # 11: Get stock price
     if there_exists(['price of']):
         # strip removes whitespace before/after a term in string
         search_term = voice_data.lower().split(" of ")[-1].strip()
