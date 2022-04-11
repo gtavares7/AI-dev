@@ -58,6 +58,7 @@ def speak(audio_string):
     print(f"May Day: {audio_file}")  # print what the app said
     os.remove(audio_file)  # remove audio file
 
+
 # how to respond to the question
 def respond(voice_data):
     speak('How can I help you?')
@@ -84,11 +85,11 @@ def respond(voice_data):
         person_obj.setName(person_name)  # remember name is person object
 
     # 3: Greeting
-    if there_exists(['how are you','how are you doing']):
+    if there_exists(['how are you', 'how are you doing']):
         speak(f'I am very well, thanks for asking {person_obj.name}')
 
     # 4: Time
-    if there_exists(['what time is it','tell me the time','can I have the time']):
+    if there_exists(['what time is it', 'tell me the time', 'can I have the time']):
         time = ctime().split(" ")[3].split(":")[0:2]
         if time[0] == "00":
             hour = '12'
@@ -131,9 +132,15 @@ def respond(voice_data):
             speak(f'price of {search_term} is {price} {stock.info["currency"]} {person_obj.name}')
         except:
             speak('oops, something went wrong')
-    if there_exists(['exit','quit','goodbye']):
+    if there_exists(['exit', 'quit', 'goodbye']):
         speak('going offline')
         exit()
 
 
+time.sleep(1)
+
+person_obj = person()
+while(1):
+    voice_data = record_audio() # get the voice input
+    respond(voice_data) # respond
 
