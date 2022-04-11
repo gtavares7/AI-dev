@@ -59,7 +59,7 @@ def speak(audio_string):
     os.remove(audio_file)  # remove audio file
 
 
-# hourly greeting function
+# Time-dependent greeting function
 def wishMe():
     hour = datetime.datetime.now().hour
     if hour >= 0 and hour < 12:
