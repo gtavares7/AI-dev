@@ -98,4 +98,13 @@ def respond(voice_data):
         time = f'{hours} {minutes}'
         speak(time)
 
+    # Google search
+    if there_exists(["search for"]) and 'youtube' not in voice_data:
+        search_term = voice_data.split("for")[-1]
+        url = f"https://google.com/search?q={search_term}"
+        webbrowser.get().open(url)
+        speak(f'Here is what I found for {search_term} on Google')
+
+    
+
 
