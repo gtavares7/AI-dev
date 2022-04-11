@@ -87,4 +87,15 @@ def respond(voice_data):
     if there_exists(['how are you','how are you doing']):
         speak(f'I am very well, thanks for asking {person_obj.name}')
 
-    
+    # time
+    if there_exists(['what time is it','tell me the time','can I have the time']):
+        time = ctime().split(" ")[3].split(":")[0:2]
+        if time[0] == "00":
+            hour = '12'
+        else:
+            hours = time[0]
+        minutes = time[1]
+        time = f'{hours} {minutes}'
+        speak(time)
+
+
