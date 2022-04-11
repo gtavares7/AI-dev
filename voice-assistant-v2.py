@@ -118,7 +118,12 @@ def respond(voice_data):
         webbrowser.get().open(url)
         speak(f'Here is what I found for {search_term} on YouTube')
 
-    # 8: Get stock price
+    # 8: Open Gmail
+    if there_exists(['open gmail', 'open my mail', 'show me my mail']):
+        webbrowser.open_new_tab('https://mail.google.com')
+        speak('Opening Gmail')
+
+    # 9: Get stock price
     if there_exists(['price of']):
         # strip removes whitespace before/after a term in string
         search_term = voice_data.lower().split(" of ")[-1].strip()
