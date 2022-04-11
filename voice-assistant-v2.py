@@ -59,8 +59,20 @@ def speak(audio_string):
     os.remove(audio_file)  # remove audio file
 
 
+# hourly greeting function
+def wishMe():
+    hour = datetime.datetime.now().hour
+    if hour >= 0 and hour < 12:
+        speak("Hello,Good Morning")
+    elif hour >= 12 and hour < 18:
+        speak("Hello,Good Afternoon")
+    else:
+        speak("Hello,Good Evening")
+
+
 # how to respond to the question
 def respond(voice_data):
+    wishMe()
     speak('How can I help you?')
 
     # 1: Greeting
