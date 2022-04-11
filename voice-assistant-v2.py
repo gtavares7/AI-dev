@@ -41,7 +41,7 @@ def record_audio(ask=False):
         try:
             voice_data = r.recognize_google(audio)  # convert audio to text
         except sr.UnknownValueError:  # error: recognizer does not understand
-            speak('Sorry, I did not get that')
+            speak('Sorry, I did not get that sir')
         except sr.RequestError:  # error: Recognizer is not connected
             speak('Sorry, my service is down')
         print("f >> {voice_data.lower()}")  # print what user said
