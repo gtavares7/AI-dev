@@ -82,3 +82,9 @@ def respond(voice_data):
         person_name = voice_data.split('is')[-1].strip()
         speak(f'okay, I will remember that {person_name}')
         person_obj.setName(person_name)  # remember name is person object
+
+    # 3: Greeting
+    if there_exists(['how are you','how are you doing']):
+        speak(f'I am very well, thanks for asking {person_obj.name}')
+
+    
