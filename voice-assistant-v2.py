@@ -123,6 +123,10 @@ def respond(voice_data):
         webbrowser.open_new_tab('https://mail.google.com')
         speak('Opening Gmail')
 
+    # 9: Open the News
+    if there_exists(['show me the news', 'open the news', 'what is the latest news']):
+        webbrowser.open_new_tab('https://news.google.com/foryou')
+
     # 9: Get stock price
     if there_exists(['price of']):
         # strip removes whitespace before/after a term in string
