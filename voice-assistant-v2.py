@@ -88,7 +88,12 @@ def respond(voice_data):
     if there_exists(['how are you', 'how are you doing']):
         speak(f'I am very well, thanks for asking {person_obj.name}')
 
-    # 4: Time
+    # 4: who am I
+    if there_exists(['who are you', 'who made you']):
+        speak('My name is Aaliyah. I am an AI voice assistant created by Gabriel Tavares.'
+              'My physical self was created by my mommy Fanta.')
+
+    # 5: Time
     if there_exists(['what time is it', 'tell me the time', 'can I have the time']):
         time = ctime().split(" ")[3].split(":")[0:2]
         if time[0] == "00":
@@ -99,21 +104,21 @@ def respond(voice_data):
         time = f'{hours} {minutes}'
         speak(time)
 
-    # 5: Search Google
+    # 6: Search Google
     if there_exists(["search for"]) and 'youtube' not in voice_data:
         search_term = voice_data.split("for")[-1]
         url = f"https://google.com/search?q={search_term}"
         webbrowser.get().open(url)
         speak(f'Here is what I found for {search_term} on Google')
 
-    # 6: Search YouTube
+    # 7: Search YouTube
     if there_exists(["youtube"]):
         search_term = voice_data.split("for")[-1]
         url = f"https://www.youtube.com/results?search_query={search_term}"
         webbrowser.get().open(url)
         speak(f'Here is what I found for {search_term} on YouTube')
 
-    # 7: Get stock price
+    # 8: Get stock price
     if there_exists(['price of']):
         # strip removes whitespace before/after a term in string
         search_term = voice_data.lower().split(" of ")[-1].strip()
