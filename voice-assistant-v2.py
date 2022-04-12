@@ -3,6 +3,7 @@
 
 import speech_recognition as sr
 import playsound
+import pyaudio
 from gtts import gTTS
 import random
 from time import ctime
