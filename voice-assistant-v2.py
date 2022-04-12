@@ -10,6 +10,7 @@ import webbrowser
 import ssl
 import certifi
 import time
+import datetime
 import os
 
 
@@ -60,7 +61,7 @@ def speak(audio_string):
 
 
 # Time-dependent greeting function
-def wishMe():
+def greeting():
     hour = datetime.datetime.now().hour
     if hour >= 0 and hour < 12:
         speak("Hello,Good Morning")
@@ -69,10 +70,9 @@ def wishMe():
     else:
         speak("Hello,Good Evening")
 
-
 # how to respond to the question
 def respond(voice_data):
-    wishMe()
+    greeting()
     speak('How can I help you?')
 
     # 1: Greeting
