@@ -64,11 +64,10 @@ def run_aaliyah():
     print(command)
 
     if 'who are you' in command:
-        talk('My name is Aaliyah. I am an AI voice assistant created by Gabriel Tavares.'
-             'My physical self was created by my mommy Fanta.')
+        talk('My name is Aaliyah. I am an AI voice assistant created by Gabriel Tavares.')
 
     elif 'what can you do' in command:
-        talk('I can complete small tasks such as opening a web browser, playing music,'
+        talk('I can complete small tasks such as opening apps and web browsers, playing music,'
              'providing the date and time as well as weather conditions in any city.'
              'I can also complete complex computational equations.')
 
@@ -77,16 +76,19 @@ def run_aaliyah():
         talk('Playing ' + song)
         print('Playing ' + song)
         pywhatkit.playonyt(song)
+        time.sleep(5)
 
     elif 'search' in command:
         search = command.replace('search', '')
         talk('looking up' + search)
         pywhatkit.info(search, lines=4)
+        time.sleep(5)
 
     elif 'time' in command:
         time = datetime.datetime.now().strftime('%I:%M %p')
         print(time)
         talk('Current time is' + time)
+        time.sleep(5)
 
     elif 'weather' in command:
         api_key = '8ef61edcf1c576d65d836254e11ea420'
@@ -125,22 +127,27 @@ def run_aaliyah():
         talk('According to Wikipedia')
         talk(results)
         print(results)
+        time.sleep(5)
 
     elif 'open google' in command:
         webbrowser.open_new_tab('https://www.google.ca')
         talk('Google chrome is now opened')
+        time.sleep(5)
 
     elif 'open gmail' in command:
         webbrowser.open_new_tab('https://mail.google.com')
         talk('Gmail is now opened')
+        time.sleep(5)
 
     elif 'open youtube' in command:
         webbrowser.open_new_tab('https://www.youtube.com')
         talk('Youtube is now opened')
+        time.sleep(5)
 
     elif 'news' in command:
         webbrowser.open_new_tab('https://news.google.com/foryou')
         talk('Google News is now opened')
+        time.sleep(5)
 
     elif 'ask' in command:
         talk('I can answer any computational and geographical questions, what do you want to ask me?')
@@ -151,14 +158,17 @@ def run_aaliyah():
         answer = next(res.results).text
         talk(answer)
         print(answer)
+        time.sleep(5)
 
     elif 'date with me' in command:
         talk("I don't think you're my type")
     elif 'that hurt my feelings' in command:
         talk('suck it up, buttercup!')
+        time.sleep(5)
 
     elif 'joke' in command:
         talk(pyjokes.get_joke())
+        time.sleep(5)
 
     elif "power off" in command or "shut down" in command:
         talk("Ok , your pc will shut down in 10 seconds")
