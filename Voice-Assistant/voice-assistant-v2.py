@@ -46,7 +46,7 @@ def record_audio(ask=False):
             speak('Sorry, I did not get that')
         except sr.RequestError:  # error: Recognizer is not connected
             speak('Sorry, my service is down')
-        print("f >> {voice_data.lower()}")  # print what user said
+        print(f">> {voice_data.lower()}")  # print what user said
         return voice_data.lower()
 
 
@@ -70,6 +70,7 @@ def greeting():
         speak("Hello,Good Afternoon")
     else:
         speak("Hello,Good Evening")
+
 
 # how to respond to the question
 def respond(voice_data):
@@ -98,7 +99,7 @@ def respond(voice_data):
         person_obj.setName(person_name)  # remember name is person object
 
     # 3: Greeting
-    if there_exists(['how are you', 'how are you doing']):
+    if there_exists(['how are you', 'how you feeling']):
         speak(f'I am very well, thanks for asking {person_obj.name}')
 
     # 4: who am I
@@ -170,6 +171,7 @@ def respond(voice_data):
             speak(f'price of {search_term} is {price} {stock.info["currency"]} {person_obj.name}')
         except:
             speak('oops, something went wrong')
+
     if there_exists(['exit', 'quit', 'goodbye']):
         speak('going offline')
         exit()
@@ -178,7 +180,6 @@ def respond(voice_data):
 time.sleep(1)
 
 person_obj = person()
-while(1):
-    voice_data = record_audio() # get the voice input
-    respond(voice_data) # respond
-
+while (1):
+    voice_data = record_audio()  # get the voice input
+    respond(voice_data)  # respond
