@@ -6,6 +6,8 @@ import pyaudio
 from gtts import gTTS
 import random
 import os
+import time
+import datetime
 
 class person:
     name = ''
@@ -48,7 +50,7 @@ def speak(audio_string):
     tts.save(audio_file)
     playsound.playsound(audio_file)
     print(f"May Day: {audio_file}")
-    os.remoce(audio_file)
+    os.remove(audio_file)
 
 
 def greeting():
@@ -100,4 +102,3 @@ person_obj = person()
 while(1):
     voice_data = record_audio()
     respond(voice_data)
-    
