@@ -29,10 +29,12 @@ def record_audio(ask=False):
     with sr.Microphone() as source:
         if ask:
             speak(ask)
+        r.adjust_for_ambient_noise(source, duration=0.5)
         audio = r.listen(source)
         voice_data = ''
         try:
             voice_data = r.recognize_google(audio)
+            r.adjust_for_ambient_noise(source)
         except sr.UnknownValueError:
             speak('Sorry, I did not get that')
             print('Sorry I did not get that')

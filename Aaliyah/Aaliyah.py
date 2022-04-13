@@ -15,7 +15,7 @@ import wolframalpha
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[10].id)
 rate = engine.getProperty('rate')
 engine.setProperty('rate', 200)
 # volume = engine.getProperty('volume')
@@ -46,6 +46,7 @@ def take_command():
             print('listening...')
             voice = listener.listen(source)
             command = listener.recognize_google(voice)
+            listener.adjust_for_ambient_noise(source, duration=0.5)
             command = command.lower()
             if 'aaliyah' in command:
                 command = command.replace('aaliyah', '')
