@@ -14,9 +14,9 @@ import requests
 import wolframalpha
 
 listener = sr.Recognizer()
-engine = pyttsx3.init()
+engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[10].id)
+engine.setProperty('voice', voices[1].id)
 rate = engine.getProperty('rate')
 engine.setProperty('rate', 200)
 # volume = engine.getProperty('volume')

@@ -30,7 +30,7 @@ import webbrowser
 # create a listener for SpeechRecognition, sr.Recognizer() is used to recognize my voice
 listener = sr.Recognizer()
 # engine that will speak back to me
-engine = pyttsx3.init()
+engine = pyttsx3.init('dummy')
 # declare variable of voices to get all provided voices in pyttsx3
 voices = engine.getProperty('voices')
 # tell engine to set voices to voice index 0
