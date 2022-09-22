@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3.10.7
+#!/usr/local/bin/python3.10
 # -*- coding: utf-8 -*-
 
 # AI Test

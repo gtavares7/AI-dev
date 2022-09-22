@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3.10
 # -*- coding: utf-8 -*-
 
 # AI Test
