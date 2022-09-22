@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3.9
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 # AI Test

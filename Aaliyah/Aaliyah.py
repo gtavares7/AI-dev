@@ -1,5 +1,6 @@
 # Aaliyah AI
 # Created by Gabriel Tavares
+#!/usr/bin/python
 
 import speech_recognition as sr
 import pyttsx3
