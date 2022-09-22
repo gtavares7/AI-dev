@@ -164,7 +164,7 @@ def run_aaliyah():
     elif 'date with me' in command:
         talk("I don't think you're my type")
     elif 'that hurt my feelings' in command:
-        talk('suck it up')
+        talk('suck it up, buttercup')
         time.sleep(5)
 
     elif 'joke' in command:
